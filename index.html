@@ -186,12 +186,12 @@ sup {
 <p>假设传送的参数如下：</p>
 
 <pre><code>username: 'xsid_pc4oy4q0o4le0h'
-client_id: '58a29943fdec1df763000001'
+partner_id: '58a29943fdec1df763000001'
 </code></pre>
 
 <p>第一步：对参数按照key=value的格式，并按照参数名ASCII字典序排序如下：</p>
 
-<pre><code>stringA="client_id=58a29943fdec1df763000001&amp;username=xsid_pc4oy4q0o4le0h";
+<pre><code>stringA="partner_id=58a29943fdec1df763000001&amp;username=xsid_pc4oy4q0o4le0h";
 </code></pre>
 
 <p>第二步：拼接API密钥：</p>
@@ -204,20 +204,20 @@ sign=MD5(stringSignTemp).toUpperCase()="9748610F7410348342F82B15E29693BB"
 
 <pre><code>{
     username: 'xsid_pc4oy4q0o4le0h',
-    client_id: '58a29943fdec1df763000001',
+    partner_id: '58a29943fdec1df763000001',
     sign: '9748610F7410348342F82B15E29693BB'
 }
 </code></pre>
 
-<ol>
-<li><p>注意事项</p></li>
-<li><p>请求每个接口必须携带client_id</p></li>
-</ol>
+<h2>注意事项</h2>
 
+<p> 请求每个接口必须携带partner_id</p>
 
 <h2>接口列表</h2>
 
-<p><code class="prettyprint">1.获取用户信息（<a href="./userinfo.html">/v1/user/userinfo</a>）</code></p>
+<ol>
+<li>/v1/user/userinfo</li>
+</ol>
 
 </body>
 </html>
