@@ -1,0 +1,304 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>saas-third-open-api</title>
+
+</head>
+<body>
+<h1>saas-third-open-api</h1>
+
+<h2>接口调用方式</h2>
+
+<ol>
+<li>签名算法</li>
+</ol>
+
+
+<p>签名生成的通用步骤如下：</p>
+
+<p>第一步，设所有发送或者接收到的数据为集合M，将集合M内非空参数值的参数按照参数名ASCII码从小到大排序（字典序），</p>
+
+<p>使用URL键值对的格式（即key1=value1&amp;key2=value2…）拼接成字符串stringA。</p>
+
+<p>特别注意以下重要规则：</p>
+
+<p>◆ 参数名ASCII码从小到大排序（字典序）；</p>
+
+<p>◆ 如果参数的值为空不参与签名；</p>
+
+<p>◆ 参数名区分大小写；</p>
+
+<p>第二步，在stringA最后拼接上key得到stringSignTemp字符串，并对stringSignTemp进行MD5运算，</p>
+
+<p>再将得到的字符串所有字符转换为大写，得到sign值signValue。</p>
+
+<p>假设传送的参数如下：</p>
+
+<p><code>text
+    username: 'xsid_pc4oy4q0o4le0h'
+    client_id: '58a29943fdec1df763000001'
+</code></p>
+
+<p>第一步：对参数按照key=value的格式，并按照参数名ASCII字典序排序如下：</p>
+
+<p><code>text
+stringA="client_id=58a29943fdec1df763000001&amp;username=xsid_pc4oy4q0o4le0h";
+</code></p>
+
+<p>第二步：拼接API密钥：</p>
+
+<p><code>text
+stringSignTemp="stringA&amp;key=6BNPb3Rpmui8HTneVYT7"
+sign=MD5(stringSignTemp).toUpperCase()="9748610F7410348342F82B15E29693BB"
+</code></p>
+
+<p>最终得到最终发送的数据：</p>
+
+<p><code>json
+{
+  username: 'xsid_pc4oy4q0o4le0h',
+  client_id: '58a29943fdec1df763000001',
+  sign: '9748610F7410348342F82B15E29693BB'
+}
+</code></p>
+
+<ol>
+<li><p>注意事项</p></li>
+<li><p>请求每个接口必须携带client_id</p></li>
+</ol>
+
+
+<h2>接口列表</h2>
+
+<ol>
+<li><p>/v1/user/userinfo</p></li>
+<li><p>接口参数</p></li>
+</ol>
+
+
+<table>
+<thead>
+<tr>
+<th> 字段 </th>
+<th> 类型 </th>
+<th> 说明 </th>
+<th> 备注 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>client_id</td>
+<td>string</td>
+<td>授权id</td>
+<td>必填</td>
+</tr>
+<tr>
+<td>username</td>
+<td>string</td>
+<td>新生id</td>
+<td>选填</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>string</td>
+<td>手机号(含区号)</td>
+<td>选填</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>邮箱</td>
+<td>选填</td>
+</tr>
+</tbody>
+</table>
+
+
+<blockquote><p>username,phone,email只需要填一个</p></blockquote>
+
+<ul>
+<li><p>正确返回值</p>
+
+<pre><code>  {
+      code: 1
+      result: {
+          fullname: "张国金",
+          phone: "+8618515928795",
+          gender: 1,
+          avatar: "http://o3b126ie1.qnssl.com/avatar/631221e7-24b4-4f00-9896-c4b91af939a5",
+          username: "xsid_pc4oy4q0o4le0h",
+          is_member: false,
+          email: "",
+          city: "北京 通州",
+          realname: ""
+      }
+  }
+</code></pre></li>
+</ul>
+
+
+<blockquote><p>返回值只有code=1时，返回结果才是正确的。当code为其他值时，请求发生错误.</p></blockquote>
+
+<ul>
+<li><p>错误返回值</p>
+
+<pre><code>  {
+      code: 0(或者其他不为1的数字),
+      message: '错误原因'
+  }
+</code></pre></li>
+</ul>
+
+</body>
+</html>
