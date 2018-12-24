@@ -12,6 +12,17 @@
 关羽|打|二哥
 张飞|骂|三弟
 
+### 代码
+```
+@Test
+    public void testGetToken(){
+        String url="http://oauth-tst.candy.one/users/info?access_token=0ecee58e-a9a5-4f02-b4e7-d92858842b2b";
+        String ret=doGet(url);
+        System.out.println(ret);
+
+    }
+```
+
 ### 标题2
   正文优点： myimage/WechatIMG51.jpeg   
 * 1、因为是纯文本，所以只要支持Markdown的地方都能获得一样的编辑效果，可以让作者摆脱排版的困扰，专心写作。  
