@@ -9,9 +9,19 @@
 ### 参数列表
 | 参数名称         | 参数类型  | 是否必填 | 参数说明 |
 | ---             | ----    | ----    | ----   |
+| clientId          | String     | 是   | 第三方client id |
 | token          | String     | 是   | 授权成功获得的token |
+| sign          | String     | 是   | 第三方参数签名 |
 
-
+### 签名算法
+  参数名ASCII码从小到大排序，最后拼接上第三方的key得到一个字符串，然后对这个字符串md5，得到签名字段。示例代码如下。
+```
+{
+    String parmas = "clientId=client&token=5e261464-d9aa-4d5c-82a4-2ddea750a699&key=aeofijslkadfoiwejfa"；
+    String sign = md5(params);
+    
+}
+```
 
 ## 响应
 
