@@ -1,4 +1,4 @@
-# 获取用户信息
+# 获取用户基本信息
 
 ## url http://tst.candy.one/api/user/1.0.0/authorization-user-info
 
