@@ -1,6 +1,6 @@
 # 获取用户信息
 
-## url http://tst.candy.one/api/user/authorization-user-info
+## url http://tst.candy.one/api/user/1.0.0/authorization-user-info
 
 ## 请求方式: Get
 
