@@ -36,6 +36,13 @@
         "openId":"1fea115e7e39432a20e0b9be46700f72"
     }
 }
+{
+    "code":0,
+    "err":{
+        "err_code":10076,
+        "message":"签名错误"
+    }
+}
 ```
 ### 返回值
 | 参数名称         | 返回值类型  | 说明 |
@@ -44,6 +51,8 @@
 | avatar          | String     | 用户头像url|
 | nick_name          | String     | 用户昵称|
 | openId          | String     | 用户在第三方平台的open id|
+| err_code          | int     | 错误码|
+| message          | String     | 错误描述|
 
 
 
