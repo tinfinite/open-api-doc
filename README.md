@@ -8,7 +8,7 @@
   
   1.选择postman的Authorization的选项，type选择Oauth 2.0,点击Get New Access Token</br>![postman1](myimage/postman1.jpg )  
   2.在新窗口中填入各个选项，点击request token</br>![postman2](myimage/postman2.jpg )  
-  姓名|技能|排行
+姓名|技能|排行
 --|:--:|--:
 刘备|哭|大哥
 关羽|打|二哥
