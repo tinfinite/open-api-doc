@@ -49,7 +49,7 @@
 | ---            | ----     | ----   |
 | code          | int     | 1为成功，0为失败
 | avatar          | String     | 用户头像url|
-| nick_name          | String     | 用户昵称|
+| nicNname          | String     | 用户昵称|
 | openId          | String     | 用户在第三方平台的open id|
 | err_code          | int     | 错误码|
 | message          | String     | 错误描述|
