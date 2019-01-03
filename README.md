@@ -2,7 +2,7 @@
 
 ## oauth2授权
 ### 概要介绍
-  授权部分采用业界主流的oauth2协议授权码模式，具体概念介绍可以参考[oauth2介绍](http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html)  
+  授权部分采用业界主流的oauth2协议授权码模式，具体概念介绍可以参考[oauth2介绍](https://oauth.net/2/)  
 ### 第三方对接步骤
   下面以postman为例，介绍第三方对接我方授权平台的步骤。  
   
