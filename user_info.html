@@ -1,34 +1,48 @@
-<h1>获取用户基本信息</h1>
-
-<h2>url http://tst.candy.one/api/user/1.0.0/authorization-user-info</h2>
-
-<h2>请求方式: Get</h2>
-
-<h3>参数列表</h3>
-
-<p>| 参数名称         | 参数类型  | 是否必填 | 参数说明 |
-| ---             | ----    | ----    | ----   |
-| clientId          | String     | 是   | 第三方client id |
-| token          | String     | 是   | 授权成功获得的token |
-| sign          | String     | 是   | 第三方参数签名 |</p>
-
-<h3>签名算法</h3>
-
-<p>  参数名ASCII码从小到大排序，最后拼接上第三方的key得到一个字符串，然后对这个字符串md5，得到签名字段。示例代码如下。
-<code></code>`
-{
+<link href="http://statics.1024tools.com/css/markdown/github.css" rel="stylesheet" />
+<h1 id="-">获取用户基本信息</h1>
+<h2 id="url-http-tst-candy-one-api-user-1-0-0-authorization-user-info">url <a href="http://tst.candy.one/api/user/1.0.0/authorization-user-info">http://tst.candy.one/api/user/1.0.0/authorization-user-info</a></h2>
+<h2 id="-get">请求方式: Get</h2>
+<h3 id="-">参数列表</h3>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数类型</th>
+<th>是否必填</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clientId</td>
+<td>String</td>
+<td>是</td>
+<td>第三方client id</td>
+</tr>
+<tr>
+<td>token</td>
+<td>String</td>
+<td>是</td>
+<td>授权成功获得的token</td>
+</tr>
+<tr>
+<td>sign</td>
+<td>String</td>
+<td>是</td>
+<td>第三方参数签名</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">签名算法</h3>
+<p>  参数名ASCII码从小到大排序，最后拼接上第三方的key得到一个字符串，然后对这个字符串md5，得到签名字段。示例代码如下。</p>
+<pre><code>{
     String parmas = &quot;clientId=client&amp;token=5e261464-d9aa-4d5c-82a4-2ddea750a699&amp;key=aeofijslkadfoiwejfa&quot;；
-    String sign = md5(params);</p>
+    String sign = md5(params);
 
-<p>}
-<code></code>`</p>
-
-<h2>响应</h2>
-
+}
+</code></pre><h2 id="-">响应</h2>
 <p><strong>同步返回</strong></p>
-
-<p><code>javascript
-{
+<pre><code class="lang-javascript">{
     &quot;code&quot;:1,
     &quot;data&quot;:{
         &quot;avatar&quot;:&quot;candy/dync/2941922_1541064461852_0&quot;,
@@ -43,15 +57,46 @@
         &quot;message&quot;:&quot;签名错误&quot;
     }
 }
-</code></p>
-
-<h3>返回值</h3>
-
-<p>| 参数名称         | 返回值类型  | 说明 |
-| ---            | ----     | ----   |
-| code          | int     | 1为成功，0为失败
-| avatar          | String     | 用户头像url|
-| nick<em>name          | String     | 用户昵称|
-| openId          | String     | 用户在第三方平台的open id|
-| err</em>code          | int     | 错误码|
-| message          | String     | 错误描述|</p>
+</code></pre>
+<h3 id="-">返回值</h3>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>返回值类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>int</td>
+<td>1为成功，0为失败</td>
+</tr>
+<tr>
+<td>avatar</td>
+<td>String</td>
+<td>用户头像url</td>
+</tr>
+<tr>
+<td>nick_name</td>
+<td>String</td>
+<td>用户昵称</td>
+</tr>
+<tr>
+<td>openId</td>
+<td>String</td>
+<td>用户在第三方平台的open id</td>
+</tr>
+<tr>
+<td>err_code</td>
+<td>int</td>
+<td>错误码</td>
+</tr>
+<tr>
+<td>message</td>
+<td>String</td>
+<td>错误描述</td>
+</tr>
+</tbody>
+</table>
