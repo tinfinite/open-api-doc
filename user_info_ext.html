@@ -1,0 +1,59 @@
+<h1>获取用户完整信息</h1>
+
+<h2>url http://tst.candy.one/api/user/1.0.0/authorization-user-info-ext</h2>
+
+<h2>请求方式: Get</h2>
+
+<h3>参数列表</h3>
+
+<p>| 参数名称         | 参数类型  | 是否必填 | 参数说明 |
+| ---             | ----    | ----    | ----   |
+| clientId          | String     | 是   | 第三方client id |
+| token          | String     | 是   | 授权成功获得的token |
+| sign          | String     | 是   | 第三方参数签名 |</p>
+
+<h3>签名算法</h3>
+
+<p>  参数名ASCII码从小到大排序，最后拼接上第三方的key得到一个字符串，然后对这个字符串md5，得到签名字段。示例代码如下。
+<code></code>`
+{
+    String parmas = &quot;clientId=client&amp;token=5e261464-d9aa-4d5c-82a4-2ddea750a699&amp;key=aeofijslkadfoiwejfa&quot;；
+    String sign = md5(params);</p>
+
+<p>}
+<code></code>`</p>
+
+<h2>响应</h2>
+
+<p><strong>同步返回</strong></p>
+
+<p><code>javascript
+{
+    &quot;code&quot;:1,
+    &quot;data&quot;:{
+        &quot;avatar&quot;:&quot;candy/dync/2941922_1541064461852_0&quot;,
+        &quot;nick_name&quot;:&quot;大漠斜阳西风烈酒&quot;,
+        &quot;phone_num&quot;:&quot;8613717536713&quot;,
+        &quot;openId&quot;:&quot;1fea115e7e39432a20e0b9be46700f72&quot;
+    }
+}
+{
+    &quot;code&quot;:0,
+    &quot;err&quot;:{
+        &quot;err_code&quot;:10076,
+        &quot;message&quot;:&quot;签名错误&quot;
+    }
+}
+</code></p>
+
+<h3>返回值</h3>
+
+<p>| 参数名称         | 返回值类型  | 说明 |
+| ---            | ----     | ----   |
+| code          | int     | 1为成功，0为失败
+| avatar          | String     | 用户头像url|
+| nick<em>name          | String     | 用户昵称|
+| phone</em>num          | String     | 用户手机号|
+| openId          | String     | 用户在第三方平台的open id|
+| err_code          | int     | 错误码|
+| message          | String     | 错误描述|</p>
