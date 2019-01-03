@@ -8,12 +8,13 @@
   
   1.选择postman的Authorization的选项，type选择Oauth 2.0,点击Get New Access Token</br>![postman1](myimage/postman1.jpg )  
   2.在新窗口中填入各个选项，点击request token</br>![postman2](myimage/postman2.jpg ) 
-  
-姓名|技能|排行
+上图中scope的说明如下
+
+名称|权限|功能
 --|:--:|--:
-刘备|哭|大哥
-关羽|打|二哥
-张飞|骂|三弟
+profile.read|读|获取用户基本信息
+phone.read|读|获取用户拓展信息
+wallet.read|读|获取用户钱包信息 
   
    
   3.输入在我方平台已经注册的手机号密码，点击登录</br>![postman3](myimage/postman3.jpg )</br>![postman4](myimage/postman4.jpg )  
