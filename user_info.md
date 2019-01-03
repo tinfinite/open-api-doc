@@ -32,7 +32,7 @@
     "code":1,
     "data":{
         "avatar":"https://static.tinfinite.com/candy/dync/2941922_1541064461852_0",
-        "nick_name":"大漠斜阳西风烈酒",
+        "nickName":"大漠斜阳西风烈酒",
         "openId":"1fea115e7e39432a20e0b9be46700f72"
     }
 }
